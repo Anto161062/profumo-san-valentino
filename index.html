@@ -43,16 +43,6 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .format-options {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-        }
-        .format-options span {
-            font-size: 0.9em;
-            color: #666;
-        }
         .total {
             font-size: 1.2em;
             margin: 20px 0;
@@ -76,7 +66,7 @@
         function calculateTotal() {
             const format = document.getElementById('format').value;
             const quantity = document.getElementById('quantity').value;
-            const price = format === '200ml' ? 20 : 35;
+            const price = format === '500ml' ? 35 : 20;
             const total = (quantity * price).toFixed(2);
             document.getElementById('total').textContent = `Totale: €${total}`;
             return total;
@@ -97,22 +87,16 @@
         <h1>Ordina Vigna Rossa</h1>
         <div class="form-group">
             <label for="format">Scegli il formato:</label>
-            <div class="format-options">
-                <select id="format" onchange="calculateTotal()">
-                    <option value="200ml">200ml - €20.00</option>
-                    <option value="500ml">500ml - €35.00</option>
-                </select>
-                <div>
-                    <span>200ml - €20.00</span><br>
-                    <span>500ml - €35.00</span>
-                </div>
-            </div>
+            <select id="format" onchange="calculateTotal()">
+                <option value="500ml">500ml - €35.00</option>
+                <option value="200ml">200ml - €20.00</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="quantity">Inserisci quantità:</label>
             <input type="number" id="quantity" value="1" min="1" onchange="calculateTotal()">
         </div>
-        <p class="total" id="total">Totale: €20.00</p>
+        <p class="total" id="total">Totale: €35.00</p>
         <button onclick="sendOrder()">Invia Ordine</button>
     </div>
 </body>
