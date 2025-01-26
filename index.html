@@ -25,6 +25,11 @@
             color: #c0392b;
             margin-bottom: 20px;
         }
+        p.instructions {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 20px;
+        }
         label {
             font-size: 1em;
             color: #333;
@@ -82,6 +87,7 @@
 <body>
     <div class="container">
         <h1>Ordina Vigna Rossa</h1>
+        <p class="instructions">Scansiona il QR code per accedere a questa pagina. Inserisci i dati richiesti e invia il tuo ordine con un semplice clic.</p>
         <label for="format">Scegli il formato:</label>
         <select id="format" onchange="calculateTotal()">
             <option value="500ml">500ml - €35.00</option>
