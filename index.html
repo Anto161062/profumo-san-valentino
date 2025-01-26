@@ -9,24 +9,33 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding: 10px;
+            padding: 0;
             background-color: #ffffff; /* Sfondo bianco */
         }
-        h1 {
-            font-size: 1.5em; /* Dimensione ridotta per i telefonini */
-            color: #c0392b;
-            margin-bottom: 10px;
+        .container {
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* Centra verticalmente il contenuto */
         }
-        p {
-            font-size: 1em; /* Testo più compatto */
-            color: #333;
+        h1 {
+            font-size: 1.6em; /* Testo bilanciato per mobile */
+            color: #c0392b;
             margin: 10px 0;
         }
         video {
-            width: 80%; /* Dimensione adatta ai dispositivi mobili */
-            margin: 10px 0;
+            width: 75%; /* Video più grande ma ancora compatto */
+            max-width: 400px; /* Limita la dimensione su schermi più grandi */
+            margin: 15px 0;
             border-radius: 10px;
             background-color: transparent;
+        }
+        p {
+            font-size: 1em; /* Testo chiaro e leggibile */
+            color: #333;
+            margin: 10px 0;
         }
         .cta {
             margin-top: 15px;
@@ -35,7 +44,7 @@
             background-color: #c0392b;
             color: white;
             border: none;
-            padding: 10px 15px;
+            padding: 10px 20px;
             font-size: 1em;
             cursor: pointer;
             border-radius: 5px;
@@ -46,15 +55,16 @@
     </style>
 </head>
 <body>
-    <h1>Vigna Rossa - Il regalo perfetto</h1>
-    <!-- Video centrato e compatto -->
-    <video autoplay muted loop>
-        <source src="vigna-rossa-video.mp4" type="video/mp4">
-        Il tuo browser non supporta il tag video.
-    </video>
-    <p>Scopri come rendere unico il tuo San Valentino con una fragranza personalizzata.</p>
-    <div class="cta">
-        <button onclick="location.href='ordine.html'">Ordina Ora</button>
+    <div class="container">
+        <h1>Vigna Rossa - Il regalo perfetto</h1>
+        <video autoplay muted loop>
+            <source src="vigna-rossa-video.mp4" type="video/mp4">
+            Il tuo browser non supporta il tag video.
+        </video>
+        <p>Scopri come rendere unico il tuo San Valentino con una fragranza personalizzata.</p>
+        <div class="cta">
+            <button onclick="location.href='ordine.html'">Ordina Ora</button>
+        </div>
     </div>
 </body>
 </html>
