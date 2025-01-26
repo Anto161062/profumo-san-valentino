@@ -15,7 +15,7 @@
         .container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Allinea gli elementi in alto */
             align-items: center;
             min-height: 100vh; /* Altezza minima per centrare tutto */
             padding: 10px;
@@ -24,22 +24,22 @@
         h1 {
             font-size: 1.6em; /* Testo bilanciato per mobile */
             color: #c0392b;
-            margin-bottom: 10px; /* Spazio perfettamente bilanciato */
+            margin-bottom: 5px; /* Spazio drasticamente ridotto */
         }
         video {
             width: 75%; /* Video più grande ma ancora compatto */
             max-width: 400px; /* Limita la dimensione su schermi più grandi */
-            margin: 10px 0; /* Stesso margine sopra e sotto */
+            margin: 5px 0; /* Spaziatura minima sopra e sotto */
             border-radius: 10px;
             background-color: transparent;
         }
         p {
             font-size: 1em; /* Testo chiaro e leggibile */
             color: #333;
-            margin-top: 10px; /* Margine uguale sopra e sotto */
+            margin-top: 5px; /* Margine ridotto per bilanciare lo spazio */
         }
         .cta {
-            margin-top: 20px;
+            margin-top: 15px;
         }
         .cta button {
             background-color: #c0392b;
@@ -69,6 +69,7 @@
     </div>
 </body>
 </html>
+
 
 
 
