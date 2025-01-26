@@ -19,6 +19,7 @@
         .order-section {
             margin-top: 30px;
         }
+        .order-section select,
         .order-section input {
             width: 200px;
             padding: 10px;
@@ -50,31 +51,36 @@
 <body>
     <h1>Ordina Vigna Rossa</h1>
     <div class="order-section">
-        <p>Prezzo unitario: <strong>35.00€</strong></p>
+        <p>Scegli il formato:</p>
+        <select id="format" onchange="updateTotal()">
+            <option value="20">200ml - 20.00€</option>
+            <option value="35">500ml - 35.00€</option>
+        </select>
         <p>Inserisci quantità:</p>
         <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
-        <p class="total" id="total">Totale: 35.00€</p>
+        <p class="total" id="total">Totale: 20.00€</p>
     </div>
     <div class="cta">
         <button onclick="sendOrder()">Invia Ordine</button>
     </div>
     <script>
-        const productName = "Vigna Rossa - 500ml";
-        const productPrice = 35.00;
-
         function updateTotal() {
+            const formatPrice = document.getElementById("format").value;
             const quantity = document.getElementById("quantity").value;
-            const total = (quantity * productPrice).toFixed(2);
+            const total = (formatPrice * quantity).toFixed(2);
             document.getElementById("total").textContent = `Totale: ${total}€`;
         }
 
         function sendOrder() {
+            const format = document.getElementById("format");
+            const formatText = format.options[format.selectedIndex].text;
             const quantity = document.getElementById("quantity").value;
-            const total = (quantity * productPrice).toFixed(2);
-            const message = `Ciao! Vorrei ordinare:\n- ${productName}\n- Quantità: ${quantity}\n- Totale: ${total}€`;
+            const total = (format.value * quantity).toFixed(2);
+            const message = `Ciao! Vorrei ordinare:\n- ${formatText}\n- Quantità: ${quantity}\n- Totale: ${total}€`;
             const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, "_blank");
         }
     </script>
 </body>
 </html>
+
