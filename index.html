@@ -37,6 +37,15 @@
             color: #333;
             margin-top: 20px;
         }
+        .order-section {
+            margin: 20px 0;
+        }
+        .order-section input {
+            width: 60px;
+            padding: 5px;
+            font-size: 1em;
+            text-align: center;
+        }
         .cta {
             margin-top: 15px;
         }
@@ -49,12 +58,20 @@
             cursor: pointer;
             border-radius: 5px;
             text-decoration: none;
-            margin: 10px;
         }
         .cta button:hover {
             background-color: #e74c3c;
         }
     </style>
+    <script>
+        function sendOrder() {
+            const quantity = document.getElementById('quantity').value;
+            const totalPrice = (quantity * 20).toFixed(2); // Prezzo unitario di 20€
+            const message = `Ciao! Vorrei ordinare Vigna Rossa:\n- Quantità: ${quantity}\n- Totale: €${totalPrice}`;
+            const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -64,16 +81,12 @@
             Il tuo browser non supporta il tag video.
         </video>
         <p>Scopri come rendere unico il tuo San Valentino con una fragranza personalizzata.</p>
+        <div class="order-section">
+            <label for="quantity">Inserisci la quantità:</label>
+            <input type="number" id="quantity" value="1" min="1">
+        </div>
         <div class="cta">
-            <!-- Pulsante WhatsApp -->
-            <button onclick="location.href='https://wa.me/393717771328?text=Ciao!%20Vorrei%20ordinare%20Vigna%20Rossa.'">
-                Ordina tramite WhatsApp
-            </button>
-
-            <!-- Pulsante Gmail -->
-            <button onclick="location.href='https://mail.google.com/mail/?view=cm&to=mysenza1@gmail.com&su=Ordine%20Vigna%20Rossa&body=Ciao,%20vorrei%20ordinare%20Vigna%20Rossa.'">
-                Invia Email tramite Gmail
-            </button>
+            <button onclick="sendOrder()">Ordina Ora tramite WhatsApp</button>
         </div>
     </div>
 </body>
