@@ -3,53 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Valentino - Vigna Rossa</title>
+    <title>Ordina Vigna Rossa</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
-            padding: 0;
+            padding: 10px;
             background-color: #ffffff;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 10px;
-            box-sizing: border-box;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         h1 {
             font-size: 1.6em;
             color: #c0392b;
             margin-bottom: 20px;
         }
-        video {
-            width: 75%;
-            max-width: 400px;
-            margin: 20px 0;
-            border-radius: 10px;
+        img {
+            width: 100%;
+            max-width: 200px;
+            margin: 10px auto;
         }
-        p {
+        select, input {
+            width: 90%;
+            padding: 10px;
             font-size: 1em;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .total {
+            font-size: 1.2em;
+            margin: 10px 0;
             color: #333;
-            margin-top: 20px;
         }
-        .order-section {
-            margin: 20px 0;
-        }
-        .order-section input {
-            width: 60px;
-            padding: 5px;
-            font-size: 1em;
-            text-align: center;
-        }
-        .cta {
-            margin-top: 15px;
-        }
-        .cta button {
+        button {
             background-color: #c0392b;
             color: white;
             border: none;
@@ -57,17 +51,26 @@
             font-size: 1em;
             cursor: pointer;
             border-radius: 5px;
-            text-decoration: none;
         }
-        .cta button:hover {
+        button:hover {
             background-color: #e74c3c;
         }
     </style>
     <script>
-        function sendOrder() {
+        function calculateTotal() {
+            const format = document.getElementById('format').value;
             const quantity = document.getElementById('quantity').value;
-            const totalPrice = (quantity * 20).toFixed(2); // Prezzo unitario di 20€
-            const message = `Ciao! Vorrei ordinare Vigna Rossa:\n- Quantità: ${quantity}\n- Totale: €${totalPrice}`;
+            const price = format === '200ml' ? 20 : 35;
+            const total = (quantity * price).toFixed(2);
+            document.getElementById('total').textContent = `Totale: €${total}`;
+            return total;
+        }
+
+        function sendOrder() {
+            const format = document.getElementById('format').value;
+            const quantity = document.getElementById('quantity').value;
+            const total = calculateTotal();
+            const message = `Ciao! Vorrei ordinare Vigna Rossa:\n- Formato: ${format}\n- Quantità: ${quantity}\n- Totale: €${total}`;
             const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
@@ -75,19 +78,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>Vigna Rossa - Il regalo perfetto</h1>
-        <video autoplay muted loop>
-            <source src="vigna-rossa-video.mp4" type="video/mp4">
-            Il tuo browser non supporta il tag video.
-        </video>
-        <p>Scopri come rendere unico il tuo San Valentino con una fragranza personalizzata.</p>
-        <div class="order-section">
-            <label for="quantity">Inserisci la quantità:</label>
-            <input type="number" id="quantity" value="1" min="1">
-        </div>
-        <div class="cta">
-            <button onclick="sendOrder()">Ordina Ora tramite WhatsApp</button>
-        </div>
+        <h1>Ordina Vigna Rossa</h1>
+        <img src="vigna-rossa-cuore.png" alt="Vigna Rossa">
+        <label for="format">Scegli il formato:</label>
+        <select id="format" onchange="calculateTotal()">
+            <option value="200ml">200ml - €20.00</option>
+            <option value="500ml">500ml - €35.00</option>
+        </select>
+        <label for="quantity">Inserisci quantità:</label>
+        <input type="number" id="quantity" value="1" min="1" onchange="calculateTotal()">
+        <p class="total" id="total">Totale: €20.00</p>
+        <button onclick="sendOrder()">Invia Ordine</button>
     </div>
 </body>
 </html>
