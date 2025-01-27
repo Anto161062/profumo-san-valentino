@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scopri Vigna Rossa</title>
+    <title>San Valentino con Vigna Rossa</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
             text-align: center;
         }
         .container {
-            max-width: 600px;
+            max-width: 400px;
             margin: 0 auto;
             padding: 20px;
             background-color: #ffffff;
@@ -25,27 +25,32 @@
             color: #c0392b;
             margin-bottom: 20px;
         }
+        p {
+            font-size: 1em;
+            color: #333;
+            margin-bottom: 20px;
+        }
         img {
             max-width: 100%;
+            height: auto;
             margin-bottom: 20px;
-            border-radius: 10px;
-            cursor: pointer;
         }
-        .buttons {
-            margin-top: 20px;
-        }
-        .buttons a {
-            text-decoration: none;
-            background-color: #4CAF50;
+        button {
+            background-color: #c0392b;
             color: white;
+            border: none;
             padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            display: inline-block;
             font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .buttons a:hover {
-            background-color: #45a049;
+        button:hover {
+            background-color: #e74c3c;
+        }
+        a {
+            text-decoration: none;
+            color: white;
         }
     </style>
 </head>
@@ -53,14 +58,14 @@
     <div class="container">
         <h1>San Valentino con Vigna Rossa</h1>
         <p>Clicca sull'immagine per accedere alla pagina d'ordine.</p>
+        <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa">
+        <p>Oppure clicca sul pulsante per procedere direttamente all'ordine:</p>
         <a href="ordine.html">
-            <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa">
+            <button>Procedi all'ordine</button>
         </a>
-        <div class="buttons">
-            <a href="catalogo-generale.pdf" download>Scarica il Catalogo</a>
-        </div>
     </div>
 </body>
 </html>
+
 
 
