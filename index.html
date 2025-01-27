@@ -35,7 +35,21 @@
             height: auto;
             margin-bottom: 20px;
         }
-        button {
+        .button-green {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-bottom: 15px;
+        }
+        .button-green:hover {
+            background-color: #2ecc71;
+        }
+        .button-red {
             background-color: #c0392b;
             color: white;
             border: none;
@@ -45,7 +59,7 @@
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+        .button-red:hover {
             background-color: #e74c3c;
         }
         a {
@@ -57,11 +71,13 @@
 <body>
     <div class="container">
         <h1>San Valentino con Vigna Rossa</h1>
-        <p>Clicca sull'immagine per accedere alla pagina d'ordine.</p>
+        <p>Scansiona per proseguire o clicca il pulsante verde per accedere all'ordine.</p>
         <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa">
-        <p>Oppure clicca sul pulsante per procedere direttamente all'ordine:</p>
         <a href="ordine.html">
-            <button>Procedi all'ordine</button>
+            <button class="button-green">Accedi all'ordine</button>
+        </a>
+        <a href="catalogo-generale.pdf">
+            <button class="button-red">Scarica il catalogo</button>
         </a>
     </div>
 </body>
