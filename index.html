@@ -35,33 +35,35 @@
             margin: 0 auto;
             margin-bottom: 20px;
         }
-        button {
+        .catalogo {
+            margin-top: 30px;
+        }
+        .catalogo a {
+            text-decoration: none;
             background-color: #c0392b;
             color: white;
-            border: none;
             padding: 10px 20px;
-            font-size: 1em;
-            cursor: pointer;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
-        button:hover {
+        .catalogo a:hover {
             background-color: #e74c3c;
-        }
-        a {
-            text-decoration: none;
-            color: white;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Scopri Vigna Rossa</h1>
-        <p>Scansiona il QR code o clicca sul link per ordinare.</p>
+        <p>Scansiona il QR code o clicca sul pulsante per ordinare.</p>
         <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa" class="qrcode">
         <a href="ordine.html">
             <button>Vai alla Pagina Ordine</button>
         </a>
+        <div class="catalogo">
+            <p>Scarica il nostro catalogo completo:</p>
+            <a href="catalogo-generale.pdf" download>Scarica il Catalogo</a>
+        </div>
     </div>
 </body>
 </html>
+
