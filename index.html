@@ -3,76 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vigna Rossa - Ordina Ora</title>
+    <title>San Valentino - Vigna Rossa</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
-            text-align: center;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
         }
         .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            display: inline-block;
+        }
+        img {
+            max-width: 100%;
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        h1 {
-            font-size: 1.8em;
-            color: #c0392b;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1em;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .qrcode {
-            max-width: 200px;
-            margin: 0 auto;
-            margin-bottom: 20px;
-        }
-        .button {
-            display: inline-block;
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-        .button-green {
-            background-color: #2ecc71;
-        }
-        .button-green:hover {
-            background-color: #27ae60;
-        }
-        .button-red {
-            background-color: #c0392b;
-        }
-        .button-red:hover {
-            background-color: #e74c3c;
-        }
-        .catalogo {
-            margin-top: 30px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Scopri Vigna Rossa</h1>
-        <p>Scansiona il QR code o clicca sul pulsante per ordinare.</p>
-        <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa" class="qrcode">
-        <div>
-            <a href="ordine.html" class="button button-green">Vai alla Pagina Ordine</a>
-        </div>
-        <div class="catalogo">
-            <p>Scarica il nostro catalogo completo:</p>
-            <a href="catalogo-generale.pdf" download class="button button-red">Scarica il Catalogo</a>
-        </div>
+        <a href="ordine.html">
+            <img src="presentazione-vigna-rossa.png" alt="Scopri Vigna Rossa">
+        </a>
     </div>
 </body>
 </html>
