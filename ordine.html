@@ -44,26 +44,37 @@
             color: #333;
             font-weight: bold;
         }
-        button {
-            background-color: #28a745;
-            color: white;
-            border: none;
+        .button {
+            display: block;
+            width: 90%;
             padding: 12px;
             font-size: 1.1em;
-            cursor: pointer;
+            color: white;
+            border: none;
             border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px auto;
+            cursor: pointer;
             font-weight: bold;
-            transition: background-color 0.3s ease;
         }
-        button:hover {
+        .btn-green {
+            background-color: #28a745;
+        }
+        .btn-green:hover {
             background-color: #218838;
         }
         .btn-red {
             background-color: #c0392b;
-            margin-top: 12px;
         }
         .btn-red:hover {
             background-color: #e74c3c;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
         }
     </style>
     <script>
@@ -80,7 +91,7 @@
             const format = document.getElementById('format').value;
             const quantity = document.getElementById('quantity').value;
             const total = updateTotal();
-            const message = `🌹 San Valentino è più speciale con Vigna Rossa! 💖\n\n✨ Ordine dettagliato:\n- 🔹 Formato: ${format}\n- 🔸 Quantità: ${quantity}\n- 💰 Totale: €${total}\n\n📩 Inviami il tuo ordine e rendi questo San Valentino indimenticabile! ❤️`;
+            const message = `🌹 San Valentino è più speciale con Vigna Rossa! 💖\n\n✨ Ordine dettagliato:\n- 🔹 Formato: ${format}\n- 🔸 Quantità: ${quantity}\n- 💰 Totale: €${total}\n\n📩 Inviami il tuo ordine su WhatsApp!`;
             const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
@@ -98,10 +109,14 @@
         <label for="quantity">📝 Inserisci quantità:</label>
         <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
         <p class="total" id="total">💰 Totale: €35.00</p>
-        <button onclick="sendOrder()">💌 Invia Ordine su WhatsApp</button>
-        <a href="catalogo-generale.pdf" class="button btn-red" download>📖 Scarica il Catalogo</a>
+
+        <div class="button-container">
+            <button class="button btn-green" onclick="sendOrder()">💌 Invia Ordine su WhatsApp</button>
+            <a href="catalogo-generale.pdf" class="button btn-red" download>📖 Scarica il Catalogo</a>
+        </div>
     </div>
 </body>
 </html>
+
 
 
