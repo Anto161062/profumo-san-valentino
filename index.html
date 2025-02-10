@@ -30,9 +30,8 @@
             color: #333;
             margin-bottom: 20px;
         }
-        img {
-            max-width: 60%; /* Riduce del 40% */
-            border-radius: 10px;
+        .qrcode {
+            max-width: 100%;
             margin-bottom: 20px;
         }
         .button {
@@ -66,12 +65,10 @@
     <div class="container">
         <h1>San Valentino con Vigna Rossa</h1>
         <p>Scansiona per proseguire o clicca il pulsante verde.</p>
-        <img src="presentazione-vigna-rossa.png" alt="Scopri Vigna Rossa">
-        
-        <!-- Pulsante verde per aprire direttamente la pagina dell'ordine -->
+        <a href="ordine.html">
+            <img src="presentazione-vigna-rossa.png" alt="Scopri Vigna Rossa" class="qrcode">
+        </a>
         <a href="ordine.html" class="button btn-green">Procedi all'ordine</a>
-
-        <!-- Pulsante rosso per scaricare il catalogo -->
         <a href="catalogo-generale.pdf" class="button btn-red" download>Scarica il Catalogo</a>
     </div>
 </body>
