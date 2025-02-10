@@ -8,55 +8,52 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #fff5f5;
+            background: url('sfondo-san-valentino.png') no-repeat center center fixed;
+            background-size: cover;
             margin: 0;
             padding: 20px;
+            color: white;
         }
         .container {
-            max-width: 380px;
+            max-width: 400px;
             margin: auto;
             padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
             font-size: 1.8em;
-            color: #c0392b;
-            margin-bottom: 15px;
+            color: #ffd700;
+            margin-bottom: 20px;
         }
-        p {
+        label, p {
             font-size: 1em;
-            color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         select, input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             font-size: 1em;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 5px;
         }
         .total {
-            font-size: 1.3em;
-            margin-bottom: 15px;
-            color: #333;
-            font-weight: bold;
+            font-size: 1.4em;
+            margin-bottom: 20px;
         }
         .button {
             display: block;
-            width: 90%;
+            width: 100%;
             padding: 12px;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             text-align: center;
             text-decoration: none;
-            margin: 10px auto;
             cursor: pointer;
-            font-weight: bold;
         }
         .btn-green {
             background-color: #28a745;
@@ -70,28 +67,22 @@
         .btn-red:hover {
             background-color: #e74c3c;
         }
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center;
-        }
     </style>
     <script>
-        function updateTotal() {
+        function calculateTotal() {
             const format = document.getElementById('format').value;
             const quantity = document.getElementById('quantity').value;
             const price = format === '500ml' ? 35 : 20;
             const total = (quantity * price).toFixed(2);
-            document.getElementById('total').textContent = `💰 Totale: €${total}`;
+            document.getElementById('total').textContent = `Totale: €${total}`;
             return total;
         }
 
         function sendOrder() {
             const format = document.getElementById('format').value;
             const quantity = document.getElementById('quantity').value;
-            const total = updateTotal();
-            const message = `🌹 San Valentino è più speciale con Vigna Rossa! 💖\n\n✨ Ordine dettagliato:\n- 🔹 Formato: ${format}\n- 🔸 Quantità: ${quantity}\n- 💰 Totale: €${total}\n\n📩 Inviami il tuo ordine su WhatsApp!`;
+            const total = calculateTotal();
+            const message = `🌹 *San Valentino con Vigna Rossa* 🌹\n\n💖 *Regala un profumo che racconta emozioni!* 💖\n\n🛍️ *Ordine:* \n- Formato: ${format} \n- Quantità: ${quantity} \n- Totale: €${total}\n\n📲 *Invia ora il tuo ordine su WhatsApp!*`;
             const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
@@ -101,22 +92,20 @@
     <div class="container">
         <h1>Ordina Vigna Rossa</h1>
         <p>Scegli il formato e la quantità, poi invia il tuo ordine su WhatsApp.</p>
-        <label for="format">📏 Scegli il formato:</label>
-        <select id="format" onchange="updateTotal()">
+        <label for="format">📦 Scegli il formato:</label>
+        <select id="format" onchange="calculateTotal()">
             <option value="500ml">500ml - €35.00</option>
             <option value="200ml">200ml - €20.00</option>
         </select>
-        <label for="quantity">📝 Inserisci quantità:</label>
-        <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
+        <label for="quantity">🔢 Inserisci quantità:</label>
+        <input type="number" id="quantity" value="1" min="1" onchange="calculateTotal()">
         <p class="total" id="total">💰 Totale: €35.00</p>
-
-        <div class="button-container">
-            <button class="button btn-green" onclick="sendOrder()">💌 Invia Ordine su WhatsApp</button>
-            <a href="catalogo-generale.pdf" class="button btn-red" download>📖 Scarica il Catalogo</a>
-        </div>
+        <a href="#" onclick="sendOrder()" class="button btn-green">💌 Invia Ordine su WhatsApp</a>
+        <a href="catalogo-generale.pdf" class="button btn-red" download>📖 Scarica il Catalogo</a>
     </div>
 </body>
 </html>
+
 
 
 
