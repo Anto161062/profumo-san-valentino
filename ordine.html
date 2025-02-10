@@ -8,79 +8,68 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
-            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
-            font-size: 2em;
+            font-size: 1.8em;
             color: #c0392b;
+            margin-bottom: 20px;
         }
-        .order-section {
-            margin-top: 30px;
-        }
-        .order-section select,
-        .order-section input {
-            width: 200px;
-            padding: 10px;
-            font-size: 1.1em;
-            margin: 10px 0;
-        }
-        .total {
-            font-size: 1.5em;
-            margin: 20px 0;
+        p {
+            font-size: 1em;
             color: #333;
+            margin-bottom: 20px;
         }
-        .cta {
-            margin-top: 20px;
+        img {
+            max-width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
         }
-        .cta button {
-            background-color: #c0392b;
+        .button {
+            display: block;
+            width: 80%;
+            padding: 10px;
+            font-size: 1.2em;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            cursor: pointer;
             border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            margin: 10px auto;
+            cursor: pointer;
         }
-        .cta button:hover {
+        .btn-green {
+            background-color: #28a745;
+        }
+        .btn-green:hover {
+            background-color: #218838;
+        }
+        .btn-red {
+            background-color: #c0392b;
+        }
+        .btn-red:hover {
             background-color: #e74c3c;
         }
     </style>
 </head>
 <body>
-    <h1>Ordina Vigna Rossa</h1>
-    <div class="order-section">
-        <p>Scegli il formato:</p>
-        <select id="format" onchange="updateTotal()">
-            <option value="20">200ml - 20.00€</option>
-            <option value="35">500ml - 35.00€</option>
-        </select>
-        <p>Inserisci quantità:</p>
-        <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
-        <p class="total" id="total">Totale: 20.00€</p>
+    <div class="container">
+        <h1>Ordina Vigna Rossa</h1>
+        <p>Scansiona o clicca per procedere all'ordine.</p>
+        <img src="presentazione-vigna-rossa.png" alt="Scopri Vigna Rossa">
+        <a href="ordine.html" class="button btn-green">Procedi all'ordine</a>
+        <a href="catalogo-generale.pdf" class="button btn-red" download>Scarica il Catalogo</a>
     </div>
-    <div class="cta">
-        <button onclick="sendOrder()">Invia Ordine</button>
-    </div>
-    <script>
-        function updateTotal() {
-            const formatPrice = document.getElementById("format").value;
-            const quantity = document.getElementById("quantity").value;
-            const total = (formatPrice * quantity).toFixed(2);
-            document.getElementById("total").textContent = `Totale: ${total}€`;
-        }
-
-        function sendOrder() {
-            const format = document.getElementById("format");
-            const formatText = format.options[format.selectedIndex].text;
-            const quantity = document.getElementById("quantity").value;
-            const total = (format.value * quantity).toFixed(2);
-            const message = `Ciao! Vorrei ordinare:\n- ${formatText}\n- Quantità: ${quantity}\n- Totale: ${total}€`;
-            const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
-            window.open(whatsappURL, "_blank");
-        }
-    </script>
 </body>
 </html>
 
