@@ -8,50 +8,51 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #fff5f5;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 400px;
-            margin: 0 auto;
+            max-width: 380px;
+            margin: auto;
             padding: 20px;
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
         h1 {
             font-size: 1.8em;
             color: #c0392b;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         p {
             font-size: 1em;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         select, input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             font-size: 1em;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
         .total {
-            font-size: 1.4em;
-            margin-bottom: 20px;
+            font-size: 1.3em;
+            margin-bottom: 15px;
             color: #333;
+            font-weight: bold;
         }
         button {
             background-color: #28a745;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 12px;
+            font-size: 1.1em;
             cursor: pointer;
-            border-radius: 5px;
+            border-radius: 8px;
+            font-weight: bold;
             transition: background-color 0.3s ease;
         }
         button:hover {
@@ -59,7 +60,7 @@
         }
         .btn-red {
             background-color: #c0392b;
-            margin-top: 10px;
+            margin-top: 12px;
         }
         .btn-red:hover {
             background-color: #e74c3c;
@@ -71,7 +72,7 @@
             const quantity = document.getElementById('quantity').value;
             const price = format === '500ml' ? 35 : 20;
             const total = (quantity * price).toFixed(2);
-            document.getElementById('total').textContent = `Totale: €${total}`;
+            document.getElementById('total').textContent = `💰 Totale: €${total}`;
             return total;
         }
 
@@ -79,7 +80,7 @@
             const format = document.getElementById('format').value;
             const quantity = document.getElementById('quantity').value;
             const total = updateTotal();
-            const message = `Ciao! Vorrei ordinare Vigna Rossa:\n- Formato: ${format}\n- Quantità: ${quantity}\n- Totale: €${total}`;
+            const message = `🌹 San Valentino è più speciale con Vigna Rossa! 💖\n\n✨ Ordine dettagliato:\n- 🔹 Formato: ${format}\n- 🔸 Quantità: ${quantity}\n- 💰 Totale: €${total}\n\n📩 Inviami il tuo ordine e rendi questo San Valentino indimenticabile! ❤️`;
             const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
             window.open(whatsappURL, '_blank');
         }
@@ -88,18 +89,19 @@
 <body>
     <div class="container">
         <h1>Ordina Vigna Rossa</h1>
-        <p>Scegli il formato e la quantità, poi invia l'ordine su WhatsApp.</p>
-        <label for="format">Scegli il formato:</label>
+        <p>Scegli il formato e la quantità, poi invia il tuo ordine su WhatsApp.</p>
+        <label for="format">📏 Scegli il formato:</label>
         <select id="format" onchange="updateTotal()">
             <option value="500ml">500ml - €35.00</option>
             <option value="200ml">200ml - €20.00</option>
         </select>
-        <label for="quantity">Inserisci quantità:</label>
+        <label for="quantity">📝 Inserisci quantità:</label>
         <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
-        <p class="total" id="total">Totale: €35.00</p>
-        <button onclick="sendOrder()">Invia Ordine</button>
-        <a href="catalogo-generale.pdf" class="button btn-red" download>Scarica il Catalogo</a>
+        <p class="total" id="total">💰 Totale: €35.00</p>
+        <button onclick="sendOrder()">💌 Invia Ordine su WhatsApp</button>
+        <a href="catalogo-generale.pdf" class="button btn-red" download>📖 Scarica il Catalogo</a>
     </div>
 </body>
 </html>
+
 
