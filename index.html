@@ -8,7 +8,10 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-image: url('sfondo-san-valentino.png'); /* Sfondo uguale alla pagina d'ordine */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             margin: 0;
             padding: 20px;
         }
@@ -16,24 +19,19 @@
             max-width: 400px;
             margin: auto;
             padding: 20px;
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
             font-size: 1.8em;
             color: #c0392b;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .presentation {
             width: 100%;
             border-radius: 10px;
             margin-bottom: 15px;
-        }
-        .qrcode {
-            max-width: 80%;
-            margin-bottom: 20px;
-            cursor: pointer;
         }
         .button {
             display: block;
@@ -65,15 +63,13 @@
 <body>
     <div class="container">
         <h1>San Valentino con Vigna Rossa</h1>
-        <p>Scansiona il codice o clicca il pulsante per ordinare.</p>
-        <a href="ordine.html">
-            <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa" class="qrcode">
-        </a>
+        <img src="presentazione-vigna-rossa.png" alt="Presentazione Vigna Rossa" class="presentation">
         <a href="ordine.html" class="button btn-green">Procedi all'ordine</a>
         <a href="catalogo-generale.pdf" class="button btn-red" download>Scarica il Catalogo</a>
     </div>
 </body>
 </html>
+
 
 
 
