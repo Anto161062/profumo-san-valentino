@@ -30,46 +30,75 @@
             color: #333;
             margin-bottom: 20px;
         }
-        img {
-            max-width: 100%;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-        .button {
-            display: block;
-            width: 80%;
+        select, input {
+            width: 100%;
             padding: 10px;
-            font-size: 1.2em;
+            font-size: 1em;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .total {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        button {
+            background-color: #28a745;
             color: white;
             border: none;
-            border-radius: 5px;
-            text-align: center;
-            text-decoration: none;
-            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 1em;
             cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-        .btn-green {
-            background-color: #28a745;
-        }
-        .btn-green:hover {
+        button:hover {
             background-color: #218838;
         }
         .btn-red {
             background-color: #c0392b;
+            margin-top: 10px;
         }
         .btn-red:hover {
             background-color: #e74c3c;
         }
     </style>
+    <script>
+        function updateTotal() {
+            const format = document.getElementById('format').value;
+            const quantity = document.getElementById('quantity').value;
+            const price = format === '500ml' ? 35 : 20;
+            const total = (quantity * price).toFixed(2);
+            document.getElementById('total').textContent = `Totale: €${total}`;
+            return total;
+        }
+
+        function sendOrder() {
+            const format = document.getElementById('format').value;
+            const quantity = document.getElementById('quantity').value;
+            const total = updateTotal();
+            const message = `Ciao! Vorrei ordinare Vigna Rossa:\n- Formato: ${format}\n- Quantità: ${quantity}\n- Totale: €${total}`;
+            const whatsappURL = `https://wa.me/393717771328?text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Ordina Vigna Rossa</h1>
-        <p>Scansiona o clicca per procedere all'ordine.</p>
-        <img src="presentazione-vigna-rossa.png" alt="Scopri Vigna Rossa">
-        <a href="ordine.html" class="button btn-green">Procedi all'ordine</a>
+        <p>Scegli il formato e la quantità, poi invia l'ordine su WhatsApp.</p>
+        <label for="format">Scegli il formato:</label>
+        <select id="format" onchange="updateTotal()">
+            <option value="500ml">500ml - €35.00</option>
+            <option value="200ml">200ml - €20.00</option>
+        </select>
+        <label for="quantity">Inserisci quantità:</label>
+        <input type="number" id="quantity" value="1" min="1" onchange="updateTotal()">
+        <p class="total" id="total">Totale: €35.00</p>
+        <button onclick="sendOrder()">Invia Ordine</button>
         <a href="catalogo-generale.pdf" class="button btn-red" download>Scarica il Catalogo</a>
     </div>
 </body>
 </html>
-
