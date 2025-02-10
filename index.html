@@ -8,45 +8,45 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #fff5f5;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 380px;
+            max-width: 400px;
             margin: auto;
             padding: 20px;
             background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         h1 {
             font-size: 1.8em;
             color: #c0392b;
             margin-bottom: 10px;
         }
-        p {
-            font-size: 1em;
-            color: #333;
+        .presentation {
+            width: 100%;
+            border-radius: 10px;
             margin-bottom: 15px;
         }
         .qrcode {
-            max-width: 80%;
-            margin-bottom: 15px;
+            max-width: 100%;
+            margin-bottom: 20px;
+            cursor: pointer;
         }
         .button {
             display: block;
-            width: 85%;
+            width: 100%;
             padding: 12px;
-            font-size: 1.1em;
+            font-size: 1.2em;
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 5px;
             text-align: center;
             text-decoration: none;
-            margin: 8px auto;
             cursor: pointer;
-            font-weight: bold;
+            margin-bottom: 10px;
         }
         .btn-green {
             background-color: #28a745;
@@ -60,19 +60,30 @@
         .btn-red:hover {
             background-color: #e74c3c;
         }
+        /* Sfondo armonioso SOLO dentro il riquadro */
+        .sfondo-box {
+            background: url('sfondo-san-valentino.png') no-repeat center center;
+            background-size: cover;
+            padding: 15px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>San Valentino con Vigna Rossa</h1>
-        <p>Scansiona il codice o clicca il pulsante per ordinare.</p>
-        <a href="ordine.html">
-            <img src="presentazione-vigna-rossa.png" alt="Scopri Vigna Rossa" class="qrcode">
-        </a>
-        <a href="ordine.html" class="button btn-green">💚 Procedi all'ordine</a>
-        <a href="catalogo-generale.pdf" class="button btn-red" download>📖 Scarica il Catalogo</a>
+        <img src="presentazione-vigna-rossa.png" alt="Presentazione Vigna Rossa" class="presentation">
+        <div class="sfondo-box">
+            <p>Scansiona il codice o clicca il pulsante per ordinare.</p>
+            <a href="ordine.html">
+                <img src="vigna-rossa-qrcode.png" alt="QR Code per Vigna Rossa" class="qrcode">
+            </a>
+            <a href="ordine.html" class="button btn-green">Procedi all'ordine</a>
+            <a href="catalogo-generale.pdf" class="button btn-red" download>Scarica il Catalogo</a>
+        </div>
     </div>
 </body>
 </html>
+
 
 
